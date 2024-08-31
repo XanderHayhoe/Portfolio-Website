@@ -24,7 +24,10 @@ function App() {
       <div
         className="App"
         style={{
-          backgroundColor: "black",
+          backgroundImage: "url('/portfolio-site-background.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -130,8 +133,6 @@ function App() {
         <div
           style={{
             flex: 1,
-            backgroundColor: "black",
-            minHeight: "calc(100vh - 60px)",
           }}
         >
           <Routes>

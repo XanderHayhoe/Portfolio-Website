@@ -3,11 +3,26 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [text, setText] = useState("");
+  const fullText = "Hello World, I'm Xander!";
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    let index = 0;
+    const intervalId = setInterval(() => {
+      setText(fullText.slice(0, index));
+      index++;
+      if (index > fullText.length) {
+        clearInterval(intervalId);
+      }
+    }, 100);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(intervalId);
+    };
   }, []);
 
   const contentItems = [
@@ -21,12 +36,28 @@ const Home = () => {
     <div
       style={{
         padding: "0 5%",
-        backgroundColor: "black",
+        backgroundImage: "url('/portfolio-site-background.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
         color: "white",
         minHeight: "100vh",
       }}
     >
-      <h1 style={{ textAlign: "center", padding: "50px 0" }}>Welcome Home</h1>
+      <h1
+        style={{
+          textAlign: "center",
+          padding: "10px 0",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "4rem",
+          fontWeight: "bold",
+        }}
+      >
+        {text}
+      </h1>
       {contentItems.map((item, index) => (
         <motion.div
           key={item.id}
@@ -53,7 +84,7 @@ const Home = () => {
                 style={{
                   width: "45%",
                   height: "300px",
-                  backgroundColor: "gray",
+                  backgroundColor: "rgba(128, 128, 128, 0.7)",
                 }}
               />
             </>
@@ -63,7 +94,7 @@ const Home = () => {
                 style={{
                   width: "45%",
                   height: "300px",
-                  backgroundColor: "gray",
+                  backgroundColor: "rgba(128, 128, 128, 0.7)",
                 }}
               />
               <div style={{ width: "45%" }}>
