@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-
+import Portfolio from "./pages/Portfolio/Portfolio";
 function Personal() {
   return <h2>Personal</h2>;
 }
 
-function Portfolio() {
+function Portfolio_Name() {
   return <h2>Portfolio</h2>;
 }
 
-function Projects() {
-  return <h2>Projects</h2>;
+function DesignProjects() {
+  return <h2>Design Projects</h2>;
 }
 
 function Resume() {
@@ -101,7 +101,7 @@ function App() {
             </li>
             <li>
               <Link
-                to="/projects"
+                to="/DesignProjects"
                 style={{
                   color: "black",
                   textDecoration: "none",
@@ -110,7 +110,7 @@ function App() {
                   fontWeight: "500",
                 }}
               >
-                Projects
+                Design Projects
               </Link>
             </li>
             <li>
@@ -139,7 +139,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/personal" element={<Personal />} />
             <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/DesignProjects" element={<DesignProjects />} />
             <Route path="/resume" element={<Resume />} />
           </Routes>
         </div>
