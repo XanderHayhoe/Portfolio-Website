@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import "./App.css";
 import Home from "./pages/Home/Home";
 
 function Personal() {
@@ -24,7 +23,14 @@ function App() {
     <Router>
       <div
         className="App"
-        style={{ backgroundColor: "black", minHeight: "100vh" }}
+        style={{
+          backgroundColor: "black",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          margin: 0,
+          padding: 0,
+        }}
       >
         <nav
           style={{
@@ -121,13 +127,21 @@ function App() {
           </ul>
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/personal" element={<Personal />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/resume" element={<Resume />} />
-        </Routes>
+        <div
+          style={{
+            flex: 1,
+            backgroundColor: "black",
+            minHeight: "calc(100vh - 60px)",
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

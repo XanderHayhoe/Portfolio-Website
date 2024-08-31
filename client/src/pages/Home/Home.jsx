@@ -18,7 +18,14 @@ const Home = () => {
   ];
 
   return (
-    <div style={{ padding: "0 5%", backgroundColor: "black", color: "white" }}>
+    <div
+      style={{
+        padding: "0 5%",
+        backgroundColor: "black",
+        color: "white",
+        minHeight: "100vh",
+      }}
+    >
       <h1 style={{ textAlign: "center", padding: "50px 0" }}>Welcome Home</h1>
       {contentItems.map((item, index) => (
         <motion.div
